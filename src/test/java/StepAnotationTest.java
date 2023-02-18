@@ -14,14 +14,14 @@ public class StepAnotationTest extends TestBase{
 
     @Step("Find repository")
     public void findRepository() {
-        mainPageSearch.click();
-        mainPageSearch.sendKeys(ALLURE_REPO);
-        mainPageSearch.pressEnter();
+        inputSearch.click();
+        inputSearch.sendKeys(REPOSITORY);
+        inputSearch.pressEnter();
     }
 
     @Step("Click repo link")
     public void clickRepoLink() {
-        $(linkText(ALLURE_REPO)).click();
+        $(linkText(REPOSITORY)).click();
     }
 
     @Step("Open Tab issue")

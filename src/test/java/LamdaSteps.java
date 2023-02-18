@@ -1,10 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -15,29 +11,25 @@ import static org.openqa.selenium.By.linkText;
 
 public class LamdaSteps extends TestBase{
     @Test
-    @Feature("Check issue with lambda steps")
-    @Story("Verify issue name via lambda steps")
-    @Owner("RuslanG")
-    @DisplayName("Verify issue name isssue with lambda steps")
     public void lambdaStepsTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Open main page", () -> {
             open(URL);
         });
-        step("Find repository " + ALLURE_REPO, () -> {
-            mainPageSearch.click();
-            mainPageSearch.sendKeys(ALLURE_REPO);
-            mainPageSearch.pressEnter();
+        step("Find repository " + REPOSITORY, () -> {
+            inputSearch.click();
+            inputSearch.sendKeys(REPOSITORY);
+            inputSearch.pressEnter();
         });
-        step("Click repo link " + ALLURE_REPO, () -> {
-            $(linkText(ALLURE_REPO)).click();
+        step("Click repo link " + REPOSITORY, () -> {
+            $(linkText(REPOSITORY)).click();
         });
         step("Open tab issue " + issuesTab, () -> {
             $(issuesTab).click();
         });
         step("Verify issue name " + ISSUE_NUMBER, () -> {
-            $(withText(String.valueOf(ISSUE_NUMBER))).should(Condition.exist);
+            $(withText((ISSUE_NUMBER))).should(Condition.exist);
         });
     }
 
