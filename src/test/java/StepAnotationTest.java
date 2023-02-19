@@ -29,8 +29,8 @@ public class StepAnotationTest extends TestBase{
         $(issuesTab).click();
     }
 
-    @Step("Verify issue name")
+    @Step("Verify issue number")
     public void verifyIssueName() {
-        $(withText(String.valueOf(ISSUE_NUMBER))).should(Condition.exist);
+        $(withText((ISSUE_NUMBER))).should(Condition.exist);
     }
 }

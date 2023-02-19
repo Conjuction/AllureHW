@@ -13,6 +13,7 @@ public class SelenideListenerTest extends TestBase {
     @Test
     public void checkPage() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+
         open(URL);
 
         inputSearch.click();
@@ -21,7 +22,7 @@ public class SelenideListenerTest extends TestBase {
 
         $(linkText(REPOSITORY)).click();
         $(issuesTab).click();
-        $(withText(String.valueOf(ISSUE_NUMBER))).should(Condition.exist);
+        $(withText((ISSUE_NUMBER))).should(Condition.exist);
     }
 
 

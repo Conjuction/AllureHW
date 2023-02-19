@@ -28,7 +28,7 @@ public class LamdaSteps extends TestBase{
         step("Open tab issue " + issuesTab, () -> {
             $(issuesTab).click();
         });
-        step("Verify issue name " + ISSUE_NUMBER, () -> {
+        step("Verify issue number " + ISSUE_NUMBER, () -> {
             $(withText((ISSUE_NUMBER))).should(Condition.exist);
         });
     }
